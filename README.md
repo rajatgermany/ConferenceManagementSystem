@@ -54,4 +54,8 @@ Detailed comments </br>
 9.Login to Admin account with - **Email - rajatuiet@gmail.com** , **Password - rajat**
 10.Accept/Reject User request
 11.Login if Request accepted
-12.Login as Chair
+12.Login as Chair 
+  -MakeConfernce(Fill the Form)
+  -View your own conferences
+  -Manage - Will list all the papers uploaded to the Conference (View Author of the paper, Assign reviewer, UpdateStatus, ViewReview)
+  
