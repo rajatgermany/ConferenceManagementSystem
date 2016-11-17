@@ -1,7 +1,7 @@
 # ConferenceManagementSystem
 A Platform for uploading research papers to the conferences </br>
 # Documentation
-Three types of Users can use this platform </br>
+Four types of Users can use this platform </br>
 **Chair** </br>
 1.List all paper submissions.</br>
 2.Look at a submissions (details, pdf download).</br>
@@ -29,10 +29,15 @@ Three types of Users can use this platform </br>
 2.Look at an assigned submission </br>
 3.Details, pdf download or view </br>
 4.Make a review > template (if review is open) 
-- reviewer expertise: (1) not familar w/ the topic - (5) expert
+-reviewer expertise: (1) not familar w/ the topic - (5) expert
 overall evaluation: (1) strong reject - (5) strong accept
 - summary,
--Major strong popints,
--Major weak points,
--Detailed comments
+-Major strong points,
+Major weak points,
+Detailed comments </br>
 5.Edit a review (if reviewing phase is open) </br>
+
+**Admin** </br>
+1.Accepts or Rejects User request for Role. Only after his acceptance one can perorm activities on the platform.
+
+
