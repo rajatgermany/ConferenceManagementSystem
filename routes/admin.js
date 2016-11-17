@@ -1,13 +1,10 @@
 var Regisform = require('../models/registerModel.js');
 var path = require('path');
 
-
-
 var Admin ={
     Home : function(req,res){
         res.sendFile((path.join(__dirname, '/./../public/components/Admin/admin.html')));  // Admin Home Page is sent
     },
-
     Users : function(req,res){
         if (req.body.Email == 'rajatuiet@gmail.com' && req.body.Password == 'rajat'){
             Regisform.find({}, function (err, docs) {

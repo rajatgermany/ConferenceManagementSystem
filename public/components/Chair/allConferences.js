@@ -1,6 +1,5 @@
 var app = angular.module("allconferences", []);
 app.controller('maincontroller', function ($scope, $http, $window){
-
     $scope.conference = function(i) {
         var host = $window.location.host;
         var landingUrl = "http://" + host + "/ConferenceManagement/files/upload?" + 'id=' + i._id;

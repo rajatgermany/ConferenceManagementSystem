@@ -10,15 +10,11 @@ html(ng-app='newApp')
 
 
 body(ng-controller='newCtrl',ng-init="user= #{JSON.stringify(user)}")
-
-
     div(ng-init="data1= #{JSON.stringify(data1)}")
-
-        ul.nav.nav-tabs
+    ul.nav.nav-tabs
             li(role='presentation')
                 a(href='http://localhost:3500/ConferenceManagement/home')
                     span(class="glyphicon glyphicon-home")
-
 
             li(role='presentation' )
                 a(href='http://localhost:3500/ConferenceManagement/myprofile') {{data1.Name}}
@@ -28,10 +24,8 @@ body(ng-controller='newCtrl',ng-init="user= #{JSON.stringify(user)}")
             li(role='presentation' ng-if= 'data1.Chair == true')
                 a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') MyConferences
 
-
             li(role='presentation' ng-if= 'data1.Chair == true')
                 a(href='http://localhost:3500/ConferenceManagement/chair/makeconference') MakeConference
-
 
             li.active(role='presentation' ng-if= 'data1.Reviewer == true')
                 a(href='http://localhost:3500/ConferenceManagement/reviewer/reviewfiles') ReviewFiles
@@ -67,8 +61,6 @@ body(ng-controller='newCtrl',ng-init="user= #{JSON.stringify(user)}")
                         button(ng-if= "i.Status == 'Pending'",type="button",ng-model='yo',ng-click="GiveReviewafter(i._id)") EditreviewNow
                     div(ng-if= "i.ReviewStatus == 'NotSet'")
                         button(type="button",ng-model='yo',ng-click="GiveReviewbefore(i._id)") GiveReview
-
-
 
 
 div(ng-repeat ='i in review')

@@ -2,8 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ReviewSchema = Schema({
-
-
     TopicFamiliarity : String,
     Acceptance : String,
     StrongPoints: String,
@@ -12,8 +10,6 @@ var ReviewSchema = Schema({
     Summary : String,
     File: String,
     ReviewerID:String
-
-
 });
 
 

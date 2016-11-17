@@ -3,9 +3,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src = 'components/Chair/myConferences.js'></script>
+    <script src = '/components/Chair/myConferences.js'></script>
 </head>
-
 <ul class="nav nav-tabs">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -19,16 +18,12 @@
             <li ng-if = 'user.Chair'><a href="http://localhost:3500/ConferenceManagement/chair/makeconference">MakeConference</a></li>
             <li ng-if = 'user.Chair'><a href="http://localhost:3500/ConferenceManagement/chair/allconferences">AllConferences</a></li>
         </ul>
-
-
         <ul class="nav navbar-nav navbar-right">
             <li><a href="http://localhost:3500/ConferenceManagement/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
     </div>
 </ul>
-
 <body ng-app = "myconferences" ng-controller = "maincontroller">
-
 <br/>
 <table class="table table-striped">
     <tr >
@@ -44,8 +39,6 @@
         <th>LastDateOFSubmission</th>
         <th>Timeofevent</th>
         <th>Manage</th>
-
-
     </tr>
     <tr ng-repeat = "i in data">
         <td>{{i.Title}}</td>
@@ -62,75 +55,7 @@
         <td><button class ='btn btn-link' ng-click = "Files(i._id)">Click</button></td>
 
     </tr>
-
-
 </table>
-
-<script>
-    var app = angular.module("myconferences", []);
-    app.controller('maincontroller', function ($scope, $http, $window) {
-
-
-
-
-
-
-
-        var responsePromise = $http.get("http://localhost:3500/ConferenceManagement/chair/myconferences/all", $scope.Conference, {});
-        responsePromise.success(function (dataFromServer, status, headers, config) {
-
-            $scope.data = dataFromServer;
-        });
-        responsePromise.error(function (data, status, headers, config) {
-            alert("Submitting form failed!");
-        });
-
-
-        var responsePromise = $http.get("http://localhost:3500/ConferenceManagement/user/userinsession", {});
-        responsePromise.success(function (dataFromServer, status, headers, config) {
-
-            console.log(dataFromServer)
-            $scope.user = dataFromServer;
-        });
-        responsePromise.error(function (data, status, headers, config) {
-            alert("Submitting form failed!");
-        });
-
-
-
-
-
-        $scope.Files = function (i) {
-
-
-            var host = $window.location.host;
-            var landingUrl = "http://" + host + "/ConferenceManagement/chair/myconferences/files/?" + 'ID=' + i;
-            $window.location.href = landingUrl;
-
-
-        }
-
-
-
-        $scope.Edit = function (ID) {
-
-
-
-            var host = $window.location.host;
-            var landingUrl = "http://" + host + "/ConferenceManagement/myconferences/edit/?" + 'id=' + ID;
-            $window.location.href = landingUrl;
-
-
-        }
-
-    });
-
-
-
-
-
-
-</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js"></script>
 
 </body>

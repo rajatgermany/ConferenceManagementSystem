@@ -1,15 +1,9 @@
-/**
- * Created by Mani on 24-10-2016.
- */
 
 var Regisform = require('../models/registerModel.js');
 var ConForm = require('../models/conferenceModel.js');
 var FileForm = require('../models/FileModel.js');
 var path = require('path')
 var Review = require('../models/reviewModel');
-
-
-
 var File = {
 
     // Getting the Upload Form rendered
@@ -28,7 +22,6 @@ var File = {
                 });
             });
     },
-
 
     UploadPOST : function(req,res){  // Posting the File Data
         if(req.session.user) {
@@ -61,7 +54,6 @@ var File = {
                 };
                 rajat.save();
                 res.redirect('/ConferenceManagement/chair/allconferences');
-
             }
             else {
                 res.sendFile('./files/forbidden.html', {root: __dirname});

@@ -8,7 +8,6 @@ html(ng-app='next-update-stats')
         script(src='/javascripts/rajat.js')
 
     body(ng-controller="next-update-stats-controller")
-
         mixin FileData(OriginalName, Author, Status, FileID, SubCategory)
             div.thumbnail
                 h2= OriginalName
@@ -17,7 +16,6 @@ html(ng-app='next-update-stats')
                 input(type="radio",ng-model='radio',value='Pending')
                 input(type="radio",ng-model='radio',value='Accepted')
                 input(type="radio",ng-model='radio',value='Rejected')
-
                 a(href='http://localhost:3500/ConferenceManagement/myconferences/setstatus?id=' + '#{FileID}') SetStatus
                 br
                 a(href='http://localhost:3500/ConferenceManagement/myconferences/setreviewer?id=' + '#{FileID}') SetReviewer

@@ -10,16 +10,11 @@ html(ng-app='newApp')
 
 
 body(ng-controller='newCtrl', ng-init="FileID= #{JSON.stringify(FileID)}")
-
-
     div(ng-init="data1= #{JSON.stringify(data1)}")
-
         ul.nav.nav-tabs
             li(role='presentation')
                 a(href='http://localhost:3500/ConferenceManagement/home')
                     span(class="glyphicon glyphicon-home")
-
-
             li(role='presentation' )
                 a(href='http://localhost:3500/ConferenceManagement/myprofile') {{data1.Name}}
             li(role='presentation' ng-if= 'data1.Author == true')

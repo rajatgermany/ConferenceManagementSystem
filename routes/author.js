@@ -2,10 +2,6 @@ var Regisform = require('../models/registerModel.js');
 var ConForm = require('../models/conferenceModel.js');
 var FileForm = require('../models/FileModel.js');
 
-
-
-
-
 exports.Submissions =  function(req,res){    // Getting the Author Submitted Files
 
     FileForm
@@ -30,8 +26,6 @@ exports.Submissions =  function(req,res){    // Getting the Author Submitted Fil
         });
 
     };
-
-
 
    exports.EditSubmissionPOST = function (req,res){   // Get the Updated Submission File Data
 
@@ -62,8 +56,6 @@ exports.Submissions =  function(req,res){    // Getting the Author Submitted Fil
             });
         }
     };
-
-
 
     exports.WithdrawSubmission  = function(req,res){  // Withdraw Author Submissions
         FileForm.findOne({_id: req.query.id},  function(err,docs) {

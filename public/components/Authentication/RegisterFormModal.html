@@ -22,7 +22,6 @@
                                                 <div class="form-group">
                                                     <input class="form-control" type = "email" name= "Email" ng-model="Register.Email" required placeholder="Email">
                                                     <span ng-show="myForm.Email.$dirty && myForm.Email.$invalid">Minimum 5 digit length require.</span>
-
                                                 </div>
 
                                                 <div class="form-group">
@@ -34,7 +33,6 @@
                                                     <input class="form-control" name="Contact" ng-model="Register.Contact" ng-minlength="5"  required placeholder="Contact Number">
                                                     <span ng-show="myForm.Contact.$dirty && myForm.Contact.$invalid ">Minimum 5 digit length require.</span>
                                                 </div>
-
                                                 <div class="form-group">
                                                     <select class="form-control" ng-model="Register.City" ng-options="x for x in City">
                                                         <option value="">Please choose City</option>
@@ -46,17 +44,11 @@
                                                         <option value="">Please choose Country</option>
                                                     </select>
                                                 </div>
-
                                                 <div class="form-group">
                                                     <p>Roles:<br/></p>
                                                     Reviewer <input type ="checkbox" ng-model ='Register.Reviewer'>&nbsp;&nbsp;
                                                     Author <input type ="checkbox" ng-model ='Register.Author'>&nbsp;&nbsp;
                                                     Chair <input type ="checkbox" ng-model ='Register.Chair'>
-
-
-
-
-
                                                 </div>
 
                                                 <!-- Change this to a button or input when using this as a form -->
@@ -72,7 +64,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

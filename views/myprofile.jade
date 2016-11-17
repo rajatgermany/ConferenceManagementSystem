@@ -2,8 +2,6 @@ doctype html
 html(ng-app='newApp')
     head
         title ="Conference Management System"
-
-
         script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
         script(src='/components/User/Userprofile.js')
         link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
@@ -20,38 +18,24 @@ html(ng-app='newApp')
                 a(href='http://localhost:3500/ConferenceManagement/myprofile') {{user.Name}}
             li(role='presentation' ng-if= 'data.Author == true')
                 a(href='http://localhost:3500/ConferenceManagement/author/submissions') Submissions
-
-
-
             li(role='presentation' ng-if= 'user.Chair == true')
                 a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') MyConferences
 
             li(role='presentation' ng-if= 'user.Chair == true')
                 a(href='http://localhost:3500/ConferenceManagement/chair/makeconference') MakeConference
-
-
             li(role='presentation' ng-if= 'user.Reviewer == true')
                 a(href='http://localhost:3500/ConferenceManagement/reviewer/reviewfiles') ReviewFiles
-
             li(role='presentation')
                 a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') Allconferences
-
             ul(class= 'nav navbar-nav navbar-right')
-
                 li(role='presentation')
                    a(href='', ng-if = 'user.Author') Logged as (Author)
                    a(href='', ng-if = 'user.Reviewer') Logged as (Reviewer)
                    a(href='', ng-if = 'user.Chair') Logged as (Chair)
-
-
                 li(role='presentation')
                     a(href='http://localhost:3500/ConferenceManagement/user/logout') Logout
 
-
-
-
         div(ng-hide= 'a',class="container")
-
             br
             br
             div(class='well')
@@ -64,25 +48,10 @@ html(ng-app='newApp')
                 h1(ng-if = 'user.Reviewer') Role - Reviewer
 
                 h1 Country - {{user.Address.Country}}
-
-
-
             a(ng-if= 'user.Reviewer == true' href= "http://localhost:3500/ConferenceManagement/reviewer/reviewfiles",class="btn btn-info",style="margin-right:10px") Assigned Review Files
-
-
-
             a(href= "http://localhost:3500/ConferenceManagement/myprofile/edit",class="btn btn-info",style="margin-right:10px") Edit my Profile
-
             a(href= "http://localhost:3500/ConferenceManagement/myprofile/delete",class="btn btn-danger",style="margin-right:10px") Delete my profile
-
-
-
-
             .container
-
-
-
-
 
 script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')
 

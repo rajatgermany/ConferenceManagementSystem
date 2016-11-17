@@ -12,7 +12,6 @@ app.controller('newCtrl', function ($scope, $http, $window){
         alert("Submitting form failed!");
     });
 
-
  // Downloading the Files Assigned
     $scope.Download = function(ID) {
         var host = $window.location.host;
@@ -38,9 +37,7 @@ app.controller('newCtrl', function ($scope, $http, $window){
 
     $scope.ViewReview = function(ID,name) {
         if (ID != 'NotSet') {
-            console.log(ID);
             $scope.a = 'Review'
-
             var responsePromise = $http.get("http://localhost:3500/ConferenceManagement/reviewer/viewreview/?" + 'id=' + ID, {}, {});
             responsePromise.success(function (dataFromServer, status, headers, config) {
                 $scope.review = dataFromServer;

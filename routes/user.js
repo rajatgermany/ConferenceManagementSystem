@@ -6,10 +6,7 @@ var Promise = require('promise');
 
 
 var User = {
-
-
     RegisterPOST: function (req, res) {
-
         var promise = new Promise(function (resolve, reject) {
             Regisform.find({Email: req.body.Email}, function (err, docs) {
                 resolve(docs)
@@ -18,19 +15,13 @@ var User = {
 
             promise.then(function(docs) {
                 if (docs.length != 0) {
-
                     res.send('EmailAlreadyExist')
                     reject('')
                 }
                 else {
-
-
                     var rajat = new Regisform({           // User Profile Saved
-
                         Name: req.body.Name,
                         Email: req.body.Email,
-
-
                         Phone: req.body.Contact,
                         Address: {City: req.body.City, Country: req.body.Country},
                         Author: false,
@@ -42,7 +33,6 @@ var User = {
 
                     var promise2 = new Promise(function (resolve, reject) {
                         rajat.save(function (err, docs) {
-
                             resolve(rajat)
                         })
                     })
@@ -58,24 +48,17 @@ var User = {
                                 bcrypt.hash(req.body.Password, salt, function (err, hash) {
                                     resolve(hash)
                                 })
-
                             })
                             promise4.then(function (hash) {
                                 rajat.Password = hash;
-                                return rajat
-
-
+                                return rajat;
                             }).then(function (rajat) {
                                 var promise5 = new Promise(function (resolve, reject) {
                                     rajat.save(function (err, docs) {
-
                                         resolve(rajat)
                                     })
                                 })
                                 promise5.then(function (rajat) {
-
-
-
                                     if (req.body.Author && req.body.Reviewer) {
                                         rajat.Author = true
                                         rajat.Reviewer = true
@@ -100,20 +83,14 @@ var User = {
                                         rajat.Chair = true
                                     }
 
-
                                     return rajat;
-
-
                                 }).then(function (rajat) {
-
                                     var promise6 = new Promise(function (resolve, reject) {
                                         rajat.save(function (err, docs) {
-
                                             resolve(rajat)
                                         })
 
                                     })
-
                                     promise6.then(function (resolve) {
 
                                         var transporter = nodemailer.createTransport({
@@ -152,11 +129,7 @@ var User = {
                                         })
 
                                         return rajat;
-
-
                                     }).then(function (rajat) {
-
-
                                         res.json({message: 'User Registered', user: rajat});
 
                                     })
@@ -175,15 +148,11 @@ var User = {
 
 
     LoginPOST: function (req, res) {
-
-
         Regisform.findOne({Email: req.body.Email}, function (err, docs) {
-
             if (docs) {
                 if (docs.Status == 'Accept') {                                                             // Admin res Checked Here
                     bcrypt.compare(req.body.Password, docs.Password, function (err, result) {
                         // Password ash comparison
-
                         if (result == true) {
                             req.session.user = docs;
                             res.json({message: 'Login Successful', session:req.session.user})
@@ -210,16 +179,12 @@ var User = {
         res.redirect('/ConferenceManagement/home');
 
     },
-
-
     Profile : function(req,res){
         Regisform.find({_id:req.query.id},function(err,docs){
             res.render('viewprofile', {user: docs}, function (err, html) {
                 res.send(html);
             });
         })
-
-
     },
     GetSessionUser : function(req,res) {
         if (req.session.user) {
@@ -232,7 +197,6 @@ var User = {
             res.json({message : 'No session'})
         }
     }
-
 }
 
 

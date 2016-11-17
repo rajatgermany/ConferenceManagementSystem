@@ -1,6 +1,5 @@
 var app = angular.module('registerform', []);
 app.controller('maincontroller', function($scope, $http) {
-
     $scope.Admin = {};
     $scope.b = true;
 
@@ -15,8 +14,6 @@ app.controller('maincontroller', function($scope, $http) {
         responsePromise.error(function(data, status, headers, config) {
             alert("Submitting form failed!");
         });
-
-
         // Status Updation
         $scope.update = function(i){
             var responsePromise = $http.post("http://localhost:3500/ConferenceManagement/admin/update", i, {});
@@ -25,8 +22,6 @@ app.controller('maincontroller', function($scope, $http) {
                 $scope.a = true;
                 $scope.b = false;
                 $scope.c = i.Name;
-
-
             });
             responsePromise.error(function(data, status, headers, config) {
                 alert("Submitting form failed!");

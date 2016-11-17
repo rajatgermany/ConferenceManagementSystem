@@ -10,30 +10,22 @@ html(ng-app='newApp')
 
     body(ng-controller='newCtrl', ng-init="FileID= #{JSON.stringify(FileID)}")
         div
-
             block content
-
             form( name="myForm",action="/ConferenceManagement/reviewer/reviewtemplate", method="post")
-
                 input(type="text", ng-model= 'FileID', name="ID",class= 'hidden')
-
                 span
-
                 p Topic Familiarity
                     input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 1)
                     input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 2)
                     input(type='radio',ng-model= "review.TopicFamiliarity", name="TopicFamiliarity", value= 3)
                     input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 4)
                     input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 5)
-
                 p Acceptance Rating
                     input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 1)
                     input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 2)
                     input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 3)
                     input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 4)
                     input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 5)
-
-
                 p Strong Points
                     input(type='text', ng-model= "review.StrongPoints",name="StrongPoints")
                 p Weak Points
@@ -42,8 +34,6 @@ html(ng-app='newApp')
                         input(type='text',ng-model= "review.Comments",name="Comments")
                 p Summary
                     input(type='text',ng-model= "review.Summary",name="Summary")
-
-
 
                 div(ng-if='review == null')
                     input(type="submit", value="Upload Review", name="submit")

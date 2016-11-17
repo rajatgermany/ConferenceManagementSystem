@@ -3,29 +3,17 @@ app.controller('newCtrl', function($scope,  $location, $http, $window,$modal) {
     // Get the Details of user in session
     var responsePromise = $http.get("http://localhost:3500/ConferenceManagement/user/userinsession", {});
     responsePromise.success(function (dataFromServer, status, headers, config) {
-
-        console.log(dataFromServer)
         $scope.user = dataFromServer;
     });
     responsePromise.error(function (data, status, headers, config) {
         alert("Submitting form failed!");
     });
-
     $scope.Conference = {};
     $scope.Roles = [
         "AUTHOR", "REVIEWER",
         "CHAIR"];
-
-
-    $scope.City = [
-
-        'a', 'b', 'c'
-    ]
-
-    $scope.Country = [
-
-        'a', 'b', 'c'
-    ]
+    $scope.City = ['a', 'b', 'c']
+    $scope.Country = ['a', 'b', 'c']
 
     // MakeConference Form Submission
     $scope.submitForm = function() {
@@ -33,7 +21,7 @@ app.controller('newCtrl', function($scope,  $location, $http, $window,$modal) {
         
         var responsePromise = $http.post("http://localhost:3500/ConferenceManagement/chair/makeconference", $scope.Conference, {});
         responsePromise.success(function(dataFromServer, status, headers, config) {
-            $modal({templateUrl : '/components/MakeConference/MakeConferenceModel.html',scope : $scope ,show: true});
+            $modal({templateUrl : '/components/Chair/makeConferenceModal.html',scope : $scope ,show: true});
 
         });
         responsePromise.error(function(data, status, headers, config) {

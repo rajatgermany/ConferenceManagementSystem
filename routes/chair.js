@@ -7,11 +7,9 @@ var path = require('path');
 
 
 var Chair = {
-
     MakeConferenceGET : function(req,res)
 
     // Checking the User in Session if its in Session then makeConference Page is sent
-
     {if(req.session.user){
             if(req.session.user.Chair){
 
@@ -26,8 +24,6 @@ var Chair = {
         }
 
     },
-
-
 
     MakeConferencePOST : function(req,res){    // Posting the Make Conference Form Data
 
@@ -52,8 +48,6 @@ var Chair = {
 
 
     },
-
-
     MyConferences :function(req,res){
         if(req.session.user)
         {
@@ -72,7 +66,6 @@ var Chair = {
 
 
     },
-
 
     MyConferencesAll : function(req,res){  // Sending all the Conferences made by Login User
         ConForm.find({Owner: req.session.user._id}, function (err, docs) {
@@ -97,8 +90,6 @@ var Chair = {
 
 
     },
-
-
 
     MyConferenceFiles : function(req,res){   // Getting all the Files uploaded to the Conference
         FileForm
@@ -177,9 +168,6 @@ var Chair = {
                 });
         });
     },
-
-
-
     MyConferenceSetReviewerGET : function(req,res){  // Setting the Reviewer with checking that paper is not assigned to the person who is both Author and Reviewer
         FileForm
             .findOne({_id:req.query.id })
@@ -205,8 +193,6 @@ var Chair = {
 
 
     },
-
-
     MyConferenceSetReviewerPOST : function(req,res){
 
         // Posting the Reviewer
@@ -235,8 +221,6 @@ var Chair = {
         });
 
     },
-
-
     // Getting all the Conferences
     AllConferences : function(req,res){
         ConForm
@@ -249,8 +233,6 @@ var Chair = {
                 });
             });
     },
-
-
     // aLL files uploaded to the Conference
     MyConferenceFiles : function(req,res){
         FileForm
@@ -267,6 +249,5 @@ var Chair = {
 
 
 }
-
 
 module.exports = Chair

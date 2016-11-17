@@ -13,8 +13,6 @@ html(ng-app='next-update-stats')
         script(src="/javascripts/lib/angular-strap-2.3.6.tpl.min.js")
         script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
 
-
-
 ul.nav.nav-tabs
     li(role='presentation')
         a(href='http://localhost:3500/ConferenceManagement/home') Home
@@ -27,24 +25,18 @@ ul.nav.nav-tabs
     li.active(role='presentation')
         a(href='http://localhost:3500/ConferenceManagement/user/upload') Upload File
 
-
-
 body(ng-controller='next-update-stats-controller')
 
 
 
     .container
         form.form-horizontal(enctype="multipart/form-data" ,name="myForm" action="/ConferenceManagement/files/upload", method="post",style="max-width:650px")
-
             br
-
             .form-group
                 label.col-sm-3.control-label Title
                 .col-sm-9
                     input.form-control(type="text",name='Title')
                     input(type="hidden", name="ID",value= user)
-
-
             .form-group
                 label.col-sm-3.control-label Co-Author(1) Name
                 .col-sm-9
@@ -86,8 +78,6 @@ body(ng-controller='next-update-stats-controller')
                 label.col-sm-3.control-label Upload File
                 .col-sm-9
                     input.form-control(type="file",name="PDF")
-
-
             .form-group
                 .col-sm-9.col-sm-offset-3
                     button.btn.btn-primary(type="submit", value="Upload Image",ng-disabled="myForm.$invalid",  name="submit") Submit

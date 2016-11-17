@@ -3,11 +3,7 @@
 var app = angular.module("newApp", ['mgcrea.ngStrap.modal', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.tooltip', 'mgcrea.ngStrap.alert','ngAnimate' ]);
 app.controller('newCtrl', function ($scope, $http, $window, $modal) {
     $scope.data = {};
-
-
     $scope.b = '';
-
-
     // Checking if user is in Session
     var responsePromise = $http.get("http://localhost:3500/ConferenceManagement/user/userinsession", {});
     responsePromise.success(function (dataFromServer, status, headers, config) {
@@ -16,9 +12,6 @@ app.controller('newCtrl', function ($scope, $http, $window, $modal) {
     responsePromise.error(function (data, status, headers, config) {
         alert("Submitting form failed!");
     });
-
-
-
     $scope.ViewReview = function (ID,reviewstatus) {
         if(reviewstatus == 'NotSet'){
             $window.alert('ReviewNotSet')
@@ -36,9 +29,6 @@ app.controller('newCtrl', function ($scope, $http, $window, $modal) {
         }
 
     }
-
-
-
     // EdiT Submission
 
     $scope.EditSubmission = function(ID) {
@@ -48,7 +38,6 @@ app.controller('newCtrl', function ($scope, $http, $window, $modal) {
 
 
     }
-
     // Author Can Withdraw Submmission
     $scope.WithdrawSubmission = function(ID) {
         var x;
@@ -61,7 +50,6 @@ app.controller('newCtrl', function ($scope, $http, $window, $modal) {
             x = "You pressed Cancel!";
         }
     }
-
     // Check the Status of the Paper
     $scope.showStatus = function(i){
         if(i.Status == 'Closed'){

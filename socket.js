@@ -8,6 +8,7 @@ var io = require('socket.io').listen(server);
 
 var users = [];
 var messages = [];
+
 io.sockets.on('connection', function(socket) {
 
 

@@ -5,9 +5,7 @@ var Review = require('../models/reviewModel');
 
 
 var Reviewer = {
-
     ReviewFiles: function (req, res) { // Getting the Review fIles assigned to the Reviewer
-
         FileForm.find({
             'ReviewerAssigned.Status': 'Reviewer Assigned',
             'ReviewerAssigned.ReviewerID': req.session.user._id
@@ -33,8 +31,6 @@ var Reviewer = {
         });
 
     },
-
-
     ReviewTemplate: function (req, res) {   // Posting the Review
         var rajat = new Review({
             TopicFamiliarity: req.body.TopicFamiliarity,
@@ -48,7 +44,6 @@ var Reviewer = {
 
         });
         rajat.save();
-
         FileForm
             .findOneAndUpdate({_id: req.body.ID}, {
                 ReviewStatus: 'ReviewSET',
@@ -66,16 +61,12 @@ var Reviewer = {
         res.render('reviewformbefore', {FileID: req.query.id}, function (err, html) {
             res.send(html);
         })
-
     },
-
 
     ReviewTemplateAfter: function (req, res) {
         res.render('reviewformafter', {FileID: req.query.id}, function (err, html) {
             res.send(html);
         });
-
-
     },
 
 
@@ -85,7 +76,6 @@ var Reviewer = {
         });
 
     },
-
     EditReview: function (req, res) { // Getting the Review tobe edit
         FileForm.find({_id: req.query.id}, function (err, docs) {
             Review.find({_id: docs[0].ViewReview}, function (err, docs) {

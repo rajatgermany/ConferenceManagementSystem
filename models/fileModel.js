@@ -3,8 +3,6 @@ var Schema = mongoose.Schema;
 var Regisform = require('./registerModel.js');
 var ConForm = require('./conferenceModel.js');
 var FileSchema = Schema({
-
-
     OriginalName : String,
     Destination : String,
     Author :  { type: Schema.Types.ObjectId, ref: 'Regisform' }, //Populating with Author Personal information

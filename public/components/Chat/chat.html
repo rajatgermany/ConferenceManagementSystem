@@ -12,7 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="/javascripts/lib/angular-motion-0.4.3.min.css" rel="stylesheet">
     <link href="/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet">
-
     <script src="/javascripts/lib/jquery-2.1.4.min.js"></script>
     <script src="/javascripts/lib/angular-animate-1.4.8.min.js"></script>
     <script src="/javascripts/lib/angular-strap-2.3.6.min.js"></script>
@@ -21,18 +20,14 @@
     <link href="/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet">
     <script src = '/javascripts/lib/angular-socket-io/socket.js'></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-
-
+    <script src = '/components/Chat/chat.js'></script>
 </head>
 <body ng-app = 'Chat' ng-controller = 'ChatController' ng-init = 'rajat()'>
 
 <div >
     <br>
-
     <div class = 'col-xs-4'>
-
         <h2>OnLine Users</h2>
-
         <li ng-repeat = 'user in users'>
             <span class = 'message'>{{user.username}}</span>
         </li>
@@ -44,28 +39,17 @@
                        <span class = 'message'>{{data.message.message}} ({{data.message.username}})</span>
                     </li>
                 </ul>
-
-
-
-
     </div>
 
 </div>
-
     </div>
-
-
 <br>
 <br>
-
-
 <div class = 'col-xs-8'>
     <form class = 'form-horizontal'>
         <div class = 'form-group'>
-
-          <div class = 'col-sm-8'>
+            <div class = 'col-sm-8'>
                 <input type = 'text' class = 'form-control' id = 'chatInput' ng-model = 'msg'>
-
             </div>
             <div class = 'col-sm-2'>
                 <button type="submit" ng-click = 'sendMessage(msg)' class = 'btn btn-primary'> Send Message</button>
@@ -73,97 +57,5 @@
         </div>
     </form>
 </div>
-
-
-<script>
-
-    var app = angular.module('Chat', ['mgcrea.ngStrap.modal', 'mgcrea.ngStrap.aside', 'mgcrea.ngStrap.tooltip', 'mgcrea.ngStrap.alert','ngAnimate' , 'btford.socket-io'])
-
-
-    app.factory('Socket', function (socketFactory) {
-        return socketFactory();
-    });
-
-
-
-    app.controller('ChatController', function($scope, $http, $modal, Socket, $timeout, $window) {
-
-
-        $scope.users = [];
-        $scope.messages = [];
-        var Username ;
-
-
-
-        $window.onbeforeunload = function (e) {
-
-            }
-
-
-        var chatModal = $modal({templateUrl: '/components/Chat/ChatModal.html', scope: $scope, show: true})
-
-        Socket.connect();
-
-        $scope.verifyPassword = function(data){
-           Username = data.Email;
-            Socket.emit('verfiypassword', {credentials:data})
-        }
-
-
-
-        Socket.on('passwordverification', function(data){
-            if(data.message == 'NotAuthenticated'){
-                $scope.res = 'Wrong Credentials'
-            }
-            else {
-                chatModal.hide();
-                Socket.emit('request-users', {})
-
-
-
-            }
-        })
-
-
-        Socket.on('users', function (data) {
-            $scope.users = data.users
-
-        })
-
-
-        $scope.sendMessage = function(msg){
-
-            if(msg != null && msg != '')
-                {
-                    Socket.emit('message', {message: {username : Username , message : msg}})
-                    $scope.msg = '';
-                }
-            }
-
-
-        Socket.on('message', function(data){
-            $scope.messages.push(data);
-        })
-
-
-
-
-
-
-
-
-
-
-
-
-        });
-
-
-
-</script>
-
-<script>
-
-</script>
 </body>
 </html>

@@ -5,9 +5,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src = '/components/Chair/makeConference.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <style>
-
         *[role="form"] {
             max-width: 600px;
             padding: 15px;
@@ -21,7 +19,6 @@
         }
     </style>
 </head>
-
 <ul class="nav nav-tabs">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -44,23 +41,14 @@
     </div>
 </ul>
 
-
 <body ng-app = "makeconference" ng-controller = "newCtrl">
-
 <link href="/javascripts/lib/angular-motion-0.4.3.min.css" rel="stylesheet">
 <link href="/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet">
-
 <script src="/javascripts/lib/jquery-2.1.4.min.js"></script>
 <script src="/javascripts/lib/angular-animate-1.4.8.min.js"></script>
 <script src="/javascripts/lib/angular-strap-2.3.6.min.js"></script>
 <script src="/javascripts/lib/angular-strap-2.3.6.tpl.min.js"></script>
-
 <link href="/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet">
-
-
-
-
-
 
 <div class="container">
     <form class="form-horizontal" role="form" name="myForm" ng-submit="submitForm()" ng-hide = "a">
@@ -71,7 +59,6 @@
             <div class="col-sm-9">
                 <input name="Title" ng-model="Conference.Title" ng-minlength="5"  required placeholder="Title" class="form-control" autofocus>
                 <span ng-show="myForm.Title.$dirty && myForm.Title.$invalid ">Minimum 5 digit length require.</span>
-
             </div>
         </div>
 
@@ -106,8 +93,6 @@
                 <span ng-show=" myForm.SubCategory1.$dirty && myForm.SubCategory1.$invalid">Minimum 5 digit length require.</span>
             </div>
         </div>
-
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Sub Category 2</label>
             <div class="col-sm-9">
@@ -115,8 +100,6 @@
                 <span ng-show=" myForm.SubCategory2.$dirty && myForm.SubCategory2.$invalid">Minimum 5 digit length require.</span>
             </div>
         </div>
-
-
         <div class="form-group">
             <label class="col-sm-3 control-label">City</label>
             <div class="col-sm-9">
@@ -128,7 +111,6 @@
 
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Country</label>
             <div class="col-sm-9">
@@ -140,14 +122,11 @@
 
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-3 control-label">Last day of submission</label>
             <div class="col-sm-9">
 
                 <input type="date" name="Time" ng-model = "Conference.LastTime" required class="form-control">
-
-
             </div>
         </div>
 
@@ -159,10 +138,6 @@
         </div>
     </form>
 </div>
-
-<script>
-
-</script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js"></script>
 </body>

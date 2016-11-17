@@ -3,8 +3,6 @@ var router = express.Router();
 var path = require('path')
 var multer = require('multer');
 
-
-
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, (path.join(__dirname, '/./../uploads')))
@@ -16,10 +14,6 @@ var storage = multer.diskStorage({
 
 var upload = multer({storage: storage});
 
-
-
-
-
 var user = require('./user.js');
 var author  = require('./author.js');
 var chair = require('./chair.js')
@@ -30,18 +24,11 @@ var admin = require('./admin.js')
 
 
 //Registration/Authentication
-
 router.post('/user/register', user.RegisterPOST);
 router.post('/user/login', user.LoginPOST);
 router.get('/user/logout', user.Logout)
 router.get('/user/profile', user.Profile)
 router.get('/user/userinsession', user.GetSessionUser)
-
-
-
-
-
-
 
 //author
 router.get('/author/submissions', author.Submissions)
