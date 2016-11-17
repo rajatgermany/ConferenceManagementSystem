@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Case</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="/javascripts/lib/angular-motion-0.4.3.min.css" rel="stylesheet">
+    <link href="/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet">
+
+    <script src="/javascripts/lib/jquery-2.1.4.min.js"></script>
+    <script src="/javascripts/lib/angular-animate-1.4.8.min.js"></script>
+    <script src="/javascripts/lib/angular-strap-2.3.6.min.js"></script>
+    <script src="/javascripts/lib/angular-strap-2.3.6.tpl.min.js"></script>
+    <link href="/javascripts/lib/angular-motion-0.4.3.min.css" rel="stylesheet">
+    <link href="/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet">
+    <script src = '/javascripts/lib/angular-socket-io/socket.js'></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src = '/components/Authentication/loginController.js'></script>
+    <script src = '/components/Authentication/registerController.js'></script>
+    <script src = '/components/User/Home.js'></script>
+</head>
+<body ng-app = 'ConferenceManagementHome' ng-controller = 'ConferenceManagementCtrl' style="background-color: lightgrey">
+{{a}}
+<nav class="navbar navbar-tab">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://localhost:3500/ConferenceManagement/home"><span class="glyphicon glyphicon-home"></span></a>
+        </div>
+        <ul class="nav navbar-nav" style="color: white">
+            <li><a href="http://localhost:3500/ConferenceManagement/myprofile">{{data.Name}}</a></li>
+            <li ng-if = 'data.Author'><a href="http://localhost:3500/ConferenceManagement/author/submissions">Submissions</a></li>
+            <li ng-if = 'data.Reviewer'><a href="http://localhost:3500/ConferenceManagement/reviewer/reviewfiles">ReviewFiles</a></li>
+            <li ng-if = 'data.Chair'><a href="http://localhost:3500/ConferenceManagement/chair/myconferences">Myconferences</a></li>
+            <li ng-if = 'data.Chair'><a href="http://localhost:3500/ConferenceManagement/chair/makeconference">MakeConference</a></li>
+            <li><a href="http://localhost:3500/ConferenceManagement/chat">Chat</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="http://localhost:3500/ConferenceManagement/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class = 'col-md-3'>
+
+
+
+</div>
+<div class="col-md-9">
+    <p style="font-size: 45px">Welcome to Conference Management</p>
+
+</div>
+<div class = 'col-md-4'>
+
+
+
+</div>
+
+<div  class = 'col-md-3'>
+    <a href="http://localhost:3500/ConferenceManagement/chair/allconferences" class="btn btn-primary btn-lg btn-block btn-huge">StartUploading</a>
+</div>
+
+
+</body>
+</html>
+

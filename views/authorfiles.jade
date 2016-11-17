@@ -1,0 +1,127 @@
+doctype html
+html(ng-app='newApp')
+    head
+
+        title ="Conference Management System"
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/components/Author/authorFiles.js')
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src="/javascripts/lib/jquery-2.1.4.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.tpl.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+
+
+
+    body(ng-controller='newCtrl',ng-init="user= #{JSON.stringify(user)}")
+        div(ng-init="data= #{JSON.stringify(data)}")
+
+            ul.nav.nav-tabs
+                li(role='presentation')
+                    a(href='http://localhost:3500/ConferenceManagement/home')
+                        span(class="glyphicon glyphicon-home")
+
+
+                li(role='presentation' )
+                    a(href='http://localhost:3500/ConferenceManagement/myprofile') {{data.Name}}
+                li.active(role='presentation' ng-if= 'data.Author == true')
+                    a(href='http://localhost:3500/ConferenceManagement/author/submissions') Submissions
+                li(role='presentation' ng-if= 'data.Chair == true')
+                    a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') All Conferences
+
+                li(role='presentation' ng-if= 'data.Chair == true')
+                    a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') MyConferences
+
+
+                li(role='presentation' ng-if= 'data.Chair == true')
+                    a(href='http://localhost:3500/ConferenceManagement/chair/makeconference') MakeConference
+
+
+                li(role='presentation' ng-if= 'data.Reviewer == true')
+                    a(href='http://localhost:3500/ConferenceManagement/reviewer/reviewfiles') ReviewFiles
+
+                li(role='presentation')
+                    a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') Allconferences
+
+                ul(class= 'nav navbar-nav navbar-right')
+                    li(role='presentation')
+                        a(href='http://localhost:3500/ConferenceManagement/user/logout') Logout
+
+        block content
+
+
+            div(ng-if = 'user.length == 0')
+                div(class ='well')
+                    h1 No Files
+
+
+
+
+            this
+            div(ng-if ='user.length !=0')
+                table.table.table-striped
+                    tr
+                        th File Title
+                        th Co-Author(1) Name
+                        th Co-Author(1) Email
+                        th Co-Author(2) Name
+                        th Co-Author(2) Email
+                        th Conference
+                        th File Status
+                        th View Review
+                        th Edit Submission
+                        th Withdraw Submission
+
+
+                    tr(ng-repeat='i in user')
+
+                        td {{i.Title}}
+
+                        input(type='text',ng-model='i.Status',class='hidden')
+
+                        td {{i.Coauthor[0].CoAuthor1Name}}
+                        td {{i.Coauthor[0].CoAuthor1Email}}
+                        td {{i.Coauthor[1].CoAuthor2Name}}
+                        td  {{i.Coauthor[1].CoAuthor2Email}}
+                        td {{i.Conference.Title}}
+                        td {{i.Status}}
+                        td
+                            button(type="button",class ='btn btn-link',ng-click="ViewReview(i.ViewReview,i.ReviewStatus)") Click
+                        td
+                             button(type="button",class ='btn btn-link',ng-click="EditSubmission(i._id)", ng-disabled='i.Disable') Click
+                        td
+                            button(type="button",class ='btn btn-link',ng-click="WithdrawSubmission(i._id)") Click
+
+
+
+
+
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

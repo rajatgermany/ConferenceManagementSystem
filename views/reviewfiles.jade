@@ -1,0 +1,84 @@
+doctype html
+html(ng-app='newApp')
+    head
+        title ="Conference Management System"
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/components/Reviewer/reviewFiles.js')
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+
+
+body(ng-controller='newCtrl',ng-init="user= #{JSON.stringify(user)}")
+
+
+    div(ng-init="data1= #{JSON.stringify(data1)}")
+
+        ul.nav.nav-tabs
+            li(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/home')
+                    span(class="glyphicon glyphicon-home")
+
+
+            li(role='presentation' )
+                a(href='http://localhost:3500/ConferenceManagement/myprofile') {{data1.Name}}
+            li(role='presentation' ng-if= 'data1.Author == true')
+                a(href='http://localhost:3500/ConferenceManagement/author/submissions') Submissions
+
+            li(role='presentation' ng-if= 'data1.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') MyConferences
+
+
+            li(role='presentation' ng-if= 'data1.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/makeconference') MakeConference
+
+
+            li.active(role='presentation' ng-if= 'data1.Reviewer == true')
+                a(href='http://localhost:3500/ConferenceManagement/reviewer/reviewfiles') ReviewFiles
+
+            li(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') Allconferences
+
+            ul(class= 'nav navbar-nav navbar-right')
+                li(role='presentation')
+                    a(href='http://localhost:3500/ConferenceManagement/user/logout') Logout
+        block content
+
+        h1= message
+        table.table.table-striped
+            tr
+                th File Name
+                th View Review
+                th Download Paper
+                th Review
+            tr(ng-init="ReviewID= #{JSON.stringify(ReviewID)}",ng-repeat= "i in user")
+                td {{i.OriginalName}}
+                td
+                    div(ng-if= "i.ReviewStatus == 'ReviewSET'")
+                        button(type="button",ng-click="ViewReview(i.ViewReview,i.OriginalName)") ViewReview
+                    div(ng-if= "i.ReviewStatus == 'NotSet'")
+                        button(type="button",ng-click="ViewReview(i.ViewReview,i.OriginalName)",disabled) ReviewNotSet
+                td
+                    button(type="button",ng-click="Download(i.OriginalName)") DownloadPaper
+                td
+                    div(ng-if= "i.ReviewStatus == 'ReviewSET'")
+                        button(ng-if= "i.Status == 'Closed'",type="button",ng-model='yo',ng-click="GiveReviewafter(i._id)",disabled) CannotEditreviewNow
+                        button(ng-if= "i.Status == 'Accepted'",type="button",ng-model='yo',ng-click="GiveReviewafter(i._id)") EditreviewNow
+                        button(ng-if= "i.Status == 'Pending'",type="button",ng-model='yo',ng-click="GiveReviewafter(i._id)") EditreviewNow
+                    div(ng-if= "i.ReviewStatus == 'NotSet'")
+                        button(type="button",ng-model='yo',ng-click="GiveReviewbefore(i._id)") GiveReview
+
+
+
+
+div(ng-repeat ='i in review')
+     h3 Review:
+     h4 Topic Familiarity: {{i.TopicFamiliarity}}
+     h4 Acceptance Rating: {{i.Acceptance}}
+     h4 Strong Points: {{i.StrongPoints}}
+     h4 Weak Points: {{i.WeakPoints}}
+     h4 Comments: {{i.Comments}}
+
+
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')
+

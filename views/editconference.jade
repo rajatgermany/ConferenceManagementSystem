@@ -1,0 +1,39 @@
+doctype html
+html(ng-app='registerform')
+    head
+        title ="Conference Management System"
+        link(rel='stylesheet', href='/stylesheets/reviewform.css')
+
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/javascripts/rajat.js')
+
+    body(ng-controller='maincontroller',ng-init="Conference= #{JSON.stringify(user)}")
+        form(name="myForm",action="/ConferenceManagement/myconferences/update", method="post")
+            p Title:
+            input(name="Title",ng-model="Conference.Title",ng-minlength="5",required)
+
+
+            p Time
+            input(type="time",name="Time",ng-model= "Conference.Time",required)
+            p Street
+            input(type = "text",name= "Street",ng-model="Conference.Street",required)
+
+            p Category:
+            input(type = "text",name= "Category",ng-model="Conference.Category",required)
+
+            p SubCategory1:
+            input(type = "text",name= "SubCategory1",ng-model="Conference.Subcategories.SubCategory1.Name",required ng-minlength="5" )
+            p Description
+            input(name="Description1",ng-model="Conference.Subcategories.SubCategory1.Description",ng-minlength="25", required )
+            p SubCategory2:
+            input(type = "text",name= "SubCategory2",ng-model="Conference.Subcategories.SubCategory2.Name",required ng-minlength="5")
+            p Description
+
+            input(name="Description2",ng-model="Conference.Subcategories.SubCategory2.Description",ng-minlength="25" ,required )
+            p LastDayofSubmission
+            input(type="date" name="Time" ng-model = "Conference.LastDateOFSubmission" required)
+
+
+            button(type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid",value='Update') Update
+
+

@@ -1,0 +1,23 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "College project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajat",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "client-sessions": "^0.7.0",
+    "express": "^4.14.0",
+    "express-flash": "0.0.2",
+    "mocha": "^3.1.2",
+    "mongoose": "^4.5.9",
+    "multer": "^1.2.0",
+    "sinon": "^1.17.6",
+    "supertest": "^2.0.1"
+  }
+}

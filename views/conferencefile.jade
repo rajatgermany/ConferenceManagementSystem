@@ -1,0 +1,181 @@
+doctype html
+html(ng-app='newApp')
+    head
+        title ="Conference Management System"
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/components/Chair/myconferenceFiles.js')
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        link(href= '/javascripts/lib/angular-motion-0.4.3.min.css" rel="stylesheet')
+        link(href= '/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet')
+        link(href= '/javascripts/lib/bootstrap-additions-0.3.1.min.css" rel="stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src="/javascripts/lib/jquery-2.1.4.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.tpl.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+
+
+
+
+
+body(ng-controller='newCtrl',ng-init="user= #{JSON.stringify(user)}")
+
+
+    div(ng-init="value= #{JSON.stringify(value)}")
+
+        ul.nav.nav-tabs
+            li(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/home')
+                    span(class="glyphicon glyphicon-home")
+
+
+            li(role='presentation' )
+                a(href='http://localhost:3500/ConferenceManagement/myprofile') {{value.Name}}
+            li(role='presentation' ng-if= 'data.Author == true')
+                a(href='http://localhost:3500/ConferenceManagement/author/submissions') Submissions
+
+            li(role='presentation' ng-if= 'value.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') MyConferences
+
+
+            li(role='presentation' ng-if= 'value.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/makeconference') MakeConference
+
+
+            li(role='presentation' ng-if= 'value.Reviewer == true')
+                a(href='http://localhost:3500/ConferenceManagement/reviewer/reviewfiles') ReviewFiles
+
+            li(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') Allconferences
+
+            ul(class= 'nav navbar-nav navbar-right')
+                li(role='presentation')
+                    a(href='http://localhost:3500/ConferenceManagement/user/logout') Logout
+
+
+    block content
+
+
+
+      div( ng-if= 'user.length == 0')
+          br
+          br
+
+          div(class ='col-md-4')
+
+
+          div(class = 'col-md-4')
+              div(class ='well')
+                  h1 No Files Uploaded
+
+
+
+
+
+    div( ng-if= 'user.length != 0')
+        br
+        br
+
+        div(class ='col-md-4')
+
+
+        div(class = 'col-md-4')
+            div(class ='well')
+                h1 Files Uploaded
+
+        table(class="table table-striped")
+                tr
+                    th Title
+                    th Co-Author Name
+                    th Co-Author Email
+                    th File Name
+                    th Sub Category
+                    th View Review
+                    th Reviewer
+                    th Status
+                    th Author
+                    th Set Reviewer
+
+
+
+
+                tr(ng-repeat= "i in user",ng-hide = 'a')
+                        td {{i.Title}}
+                        td {{i.Coauthor[0].CoAuthor1Name}}
+                        td {{i.Coauthor[0].CoAuthor1Email}}
+                        td {{i.OriginalName}}
+                        td {{i.SubCategory}}
+                        td
+                            div(ng-if= "i.ReviewStatus == 'NotSet'")
+                                button(type="button",ng-click="ViewReview(i.ViewReview)", disabled class = 'btn btn-primary', data-trigger="hover" , bs-tooltip="tooltip") ReviewNotAvailable
+                            div(ng-if= "i.ReviewStatus == 'ReviewSET'")
+                                button(type="button",ng-click="ViewReview(i.ViewReview)", class = 'btn btn-primary btn-sm') ViewReview
+                        td
+                            button(ng-if = "i.ReviewerAssigned.Status == 'Not Assingned'", type="button",ng-click="ViewProfile(i.ReviewerAssigned.ReviewerID)", disabled , class = 'btn btn-primary btn-sm') ReviwerNotAssigned
+                            button(ng-if = "i.ReviewerAssigned.Status == 'Reviewer Assigned'", type="button",ng-click="ViewProfile(i.ReviewerAssigned.ReviewerID)", class = 'btn btn-primary btn-sm') ViewReviewer
+                        td
+                            input(type="radio",ng-model="i.Status", value= 'Pending')
+                            span &nbspP&nbsp;
+                            input(type="radio",ng-model="i.Status", value= 'Accepted')
+                            span &nbspA&nbsp;
+                            input(type="radio",ng-model="i.Status", value= 'Rejected')
+                            span R&nbsp;
+                            input(type="radio",ng-model="i.Status", value= 'Closed')
+                            span C&nbsp;
+
+
+                        td
+                            button(ng-click= "ViewProfile(i.Author._id)" class = 'btn btn-primary btn-sm' , data-trigger="hover" , bs-tooltip="tooltip") ViewAuthor
+                        td
+                            div(class = 'btn-tabs')
+                                button(type="button",ng-click="SetStatus(i._id,i.Status)" class = 'btn btn-primary btn-sm') Update Status
+                                button(type="button",ng-click="SetReviewer(i._id)" class = 'btn btn-primary btn-sm') Update Reviewer
+
+
+
+
+
+
+
+
+
+
+
+
+
+        div(ng-repeat= "i in review")
+            h2 Topic Familiarity = {{i.TopicFamiliarity}}
+            h2 Acceptance = {{i.Acceptance}}
+            h2 StrongPoints = {{i.StrongPoints}}
+            h2 WeakPoints = {{i.WeakPoints}}
+            h2 Comments = {{i.Comments}}
+            h2 Summary ={{i.Summary}}
+
+
+sscript(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

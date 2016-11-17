@@ -1,0 +1,33 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <h4 class = 'text-center'style="color: green">Please Login</h4>
+
+            <div class="modal-body" >
+                <h3 style ='color: red'>{{res.message}}</h3>
+                <form name="myForm" ng-submit = 'submit(Login)'>
+
+                                    <div class="panel-body">
+                                        <form role="form">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <label>Email</label>
+                                                    <input type="email" name="Email" ng-model="Login.Email" autofocus="" placeholder="Email" class="form-control"><span ng-show="myForm.Email.$invalid">Minimum 5 digit length require.</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input type="password" name="Password" ng-model="Login.Password" required="" ng-minlength="5" placeholder="Password" class="form-control"><span ng-show=" myForm.Password.$dirty &amp;&amp; myForm.Password.$invalid">Minimum 5 digit length require.</span>
+                                                </div>
+                                                <!-- Change this to a button or input when using this as a form-->
+                                                <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-success btn-lg">Submit</button>
+                                            </fieldset>
+                                        </form>
+                                        <h4>First Time user? <a ng-click = 'showRegisterModal()'>RegisterHere</a></h4>
+                                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

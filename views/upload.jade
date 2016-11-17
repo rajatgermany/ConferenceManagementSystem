@@ -1,0 +1,110 @@
+doctype html
+html(ng-app='next-update-stats')
+    head
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/javascripts/rajat.js')
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src="/javascripts/lib/jquery-2.1.4.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.min.js")
+        script(src="/javascripts/lib/angular-strap-2.3.6.tpl.min.js")
+        script(src="/javascripts/lib/angular-animate-1.4.8.min.js")
+
+
+
+ul.nav.nav-tabs
+    li(role='presentation')
+        a(href='http://localhost:3500/ConferenceManagement/home') Home
+    li(role='presentation')
+        a(href='http://localhost:3500/ConferenceManagement/author/submissions') My files
+    li(role='presentation')
+        a(href='http://localhost:3500/ConferenceManagement/myprofile') My Profile
+    li(role='presentation')
+        a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') All Conferences
+    li.active(role='presentation')
+        a(href='http://localhost:3500/ConferenceManagement/user/upload') Upload File
+
+
+
+body(ng-controller='next-update-stats-controller')
+
+
+
+    .container
+        form.form-horizontal(enctype="multipart/form-data" ,name="myForm" action="/ConferenceManagement/files/upload", method="post",style="max-width:650px")
+
+            br
+
+            .form-group
+                label.col-sm-3.control-label Title
+                .col-sm-9
+                    input.form-control(type="text",name='Title')
+                    input(type="hidden", name="ID",value= user)
+
+
+            .form-group
+                label.col-sm-3.control-label Co-Author(1) Name
+                .col-sm-9
+                    input.form-control(type="text",name='CoAuthor1Name')
+
+            .form-group
+                label.col-sm-3.control-label Co-Author(1) Email
+                .col-sm-9
+                    input.form-control(type="text",name='CoAuthor1Email')
+
+            .form-group
+                label.col-sm-3.control-label Co-Author(2) Name
+                .col-sm-9
+                    input.form-control(type="text",name='CoAuthor2Name')
+
+            .form-group
+                label.col-sm-3.control-label Co-Author(2) Email
+                .col-sm-9
+                    input.form-control(type="text",name='CoAuthor2Email')
+
+
+            .form-group
+                label.col-sm-3.control-label Select Subcategory
+                .col-sm-9
+                    span= SubCategory1
+                    span &nbsp;
+                        input(type='radio', name="SubCategory", value= SubCategory1)
+                    span &nbsp;&nbsp;&nbsp;
+                    span= SubCategory2
+                    span &nbsp;
+                        input(type='radio', name="SubCategory", value= SubCategory2)
+
+            .form-group
+                label.col-sm-3.control-label Abstract
+                .col-sm-9
+                    textarea.form-control(type="text",name='Abstract')
+
+            .form-group
+                label.col-sm-3.control-label Upload File
+                .col-sm-9
+                    input.form-control(type="file",name="PDF")
+
+
+            .form-group
+                .col-sm-9.col-sm-offset-3
+                    button.btn.btn-primary(type="submit", value="Upload Image",ng-disabled="myForm.$invalid",  name="submit") Submit
+
+
+
+
+
+
+
+
+
+
+
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')
+
+
+
+
+

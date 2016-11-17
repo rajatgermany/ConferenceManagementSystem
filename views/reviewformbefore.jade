@@ -1,0 +1,103 @@
+doctype html
+html(ng-app='newApp')
+    head
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/components/Reviewer/reviewForm.js')
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+
+
+body(ng-controller='newCtrl', ng-init="FileID= #{JSON.stringify(FileID)}")
+
+
+
+    div(ng-init="data1= #{JSON.stringify(data1)}")
+
+        ul.nav.nav-tabs
+            li(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/home')
+                    span(class="glyphicon glyphicon-home")
+
+
+            li(role='presentation' )
+                a(href='http://localhost:3500/ConferenceManagement/myprofile') {{data1.Name}}
+            li(role='presentation' ng-if= 'data1.Author == true')
+                a(href='http://localhost:3500/ConferenceManagement/author/submissions') Submissions
+
+            li(role='presentation' ng-if= 'data1.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') MyConferences
+
+
+            li(role='presentation' ng-if= 'data1.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/makeconference') MakeConference
+
+
+            li(role='presentation' ng-if= 'data1.Reviewer == true')
+                a(href='http://localhost:3500/ConferenceManagement/reviewer/reviewfiles') ReviewFiles
+
+            li(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') Allconferences
+
+            ul(class= 'nav navbar-nav navbar-right')
+                li(role='presentation')
+                    a(href='http://localhost:3500/ConferenceManagement/user/logout') Logout
+        div
+
+            block content
+
+            form.form-horizontal( name="myForm",action="/ConferenceManagement/reviewer/reviewtemplate", method="post",style="max-width:600px")
+
+                input(type="text", ng-model= 'FileID', name="ID",class= 'hidden')
+                br
+                span
+                .form-group
+                    label.col-sm-3.control-label Topic Familiarity:
+                    .col-sm-9
+                            span &nbsp;&nbsp;1&nbsp;
+                            input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 1)
+                            span &nbsp;&nbsp;2&nbsp;
+                            input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 2)
+                            span &nbsp;&nbsp;3&nbsp;
+                            input(type='radio',ng-model= "review.TopicFamiliarity", name="TopicFamiliarity", value= 3)
+                            span &nbsp;&nbsp;4&nbsp;
+                            input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 4)
+                            span &nbsp;&nbsp;5&nbsp;
+                            input(type='radio',ng-model= "review.TopicFamiliarity",name="TopicFamiliarity", value= 5)
+
+                .form-group
+                    label.col-sm-3.control-label Acceptance Rating:
+                    .col-sm-9
+                        span &nbsp;&nbsp;1&nbsp;
+                        input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 1)
+                        span &nbsp;&nbsp;2&nbsp;
+                        input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 2)
+                        span &nbsp;&nbsp;3&nbsp;
+                        input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 3)
+                        span &nbsp;&nbsp;4&nbsp;
+                        input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 4)
+                        span &nbsp;&nbsp;5&nbsp;
+                        input(type='radio',ng-model= "review.Acceptance",name="Acceptance", value= 5)
+
+                .form-group
+                    label.col-sm-3.control-label Strong Points:
+                    .col-sm-9
+                        textarea.form-control(type='text', ng-model= "review.StrongPoints",name="StrongPoints")
+                .form-group
+                    label.col-sm-3.control-label Weak Points:
+                    .col-sm-9
+                        textarea.form-control(type='text', ng-model= "review.WeakPoints",name="WeakPoints")
+                .form-group
+                    label.col-sm-3.control-label Comments:
+                    .col-sm-9
+                        textarea.form-control(type='text',ng-model= "review.Comments",name="Comments")
+                .form-group
+                    label.col-sm-3.control-label Summary:
+                    .col-sm-9
+                        textarea.form-control(type='text',ng-model= "review.Summary",name="Summary")
+                .form-group
+                    .col-sm-9.col-sm-offset-3
+                        input.btn.btn-primary(type="submit", value="Upload Review", name="submit")
+
+
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')

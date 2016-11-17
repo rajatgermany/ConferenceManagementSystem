@@ -1,0 +1,36 @@
+doctype html
+html(ng-app='registerform')
+    head
+        title ="Conference Management System"
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='/javascripts/rajat.js')
+
+
+
+    body(ng-controller="maincontroller")
+        form(name="myForm" action="/ConferenceManagement/user/login", method="post")
+            .container
+                .row
+                    .col-md-4.col-md-offset-4
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title Login
+                            .panel-body
+                                form(role='form' )
+                                    fieldset
+                                        .form-group
+                                            input.form-control(type='email', name='Email', ng-model='Login.Email', autofocus='', placeholder='Email' )
+                                            span(ng-show='myForm.Email.$invalid') Minimum 5 digit length require.
+                                        .form-group
+                                            input.form-control(type='password', name='Password', ng-model='Login.Password', required='', ng-minlength='5', placeholder='Password')
+                                            span(ng-show=' myForm.Password.$dirty && myForm.Password.$invalid') Minimum 5 digit length require.
+                                        // Change this to a button or input when using this as a form
+                                        button.btn.btn-success.btn-block(type='submit', ng-disabled='myForm.$invalid') Submit
+
+    a(href='http://localhost:3500/ConferenceManagement/user/register') First time user - Click here to register
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')

@@ -1,0 +1,85 @@
+doctype html
+html(ng-app='allconferences')
+    head
+        meta(charset='UTF-8')
+        title ="Conference Management System"
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js')
+        script(src='/components/Chair/allconferences.js')
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+
+
+body(ng-controller='maincontroller',ng-init="user= #{JSON.stringify(user)}")
+
+
+    div(ng-init="value= #{JSON.stringify(value)}")
+
+        ul.nav.nav-tabs
+            li(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/home')
+                    span(class="glyphicon glyphicon-home")
+
+
+            li(role='presentation' )
+                a(href='http://localhost:3500/ConferenceManagement/myprofile') {{value.Name}}
+            li(role='presentation' ng-if= 'data.Author == true')
+                a(href='http://localhost:3500/ConferenceManagement/author/submissions') Submissions
+
+
+            li(role='presentation' ng-if= 'value.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/myconferences') MyConferences
+
+
+            li(role='presentation' ng-if= 'value.Chair == true')
+                a(href='http://localhost:3500/ConferenceManagement/chair/makeconference') MakeConference
+
+
+            li(role='presentation' ng-if= 'value.Reviewer == true')
+                a(href='http://localhost:3500/ConferenceManagement/reviewer/reviewfiles') ReviewFiles
+
+            li.active(role='presentation')
+                a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') Allconferences
+
+            ul(class= 'nav navbar-nav navbar-right')
+                li(role='presentation')
+                    a(href='http://localhost:3500/ConferenceManagement/user/logout') Logout
+
+
+
+
+    table.table.table-striped
+        tr
+            th Upload File
+            th Category
+            th Subcategory 1 Name
+
+            th Subcategory 2
+
+            th Country
+            th City
+            th Street
+            th Last Date Of Submission
+            th Time of event
+            th Organiser
+        tr(ng-repeat='i in user')
+            td
+                button(type='button', ng-if= 'value.Author == true',class="btn btn-info",ng-click= 'conference(i)' ) SubmitFile
+                button(ng-if='value.Chair == true', type='button', class="btn btn-info disabled",ng-click='conference(i)',disabled) SubmitFile
+                button(ng-if='value.Reviewer == true && value.Author == false', type='button', class="btn btn-info disabled",ng-click='conference(i)',disabled) SubmitFile
+
+            td {{i.Category}}
+            td {{i.Subcategories.SubCategory1.Name}}
+
+            td {{i.Subcategories.SubCategory2.Name}}
+
+            td {{i.Country}}
+            td {{i.City}}
+            td {{i.Street}}
+            td {{i.LastDataOFSubmission}}
+            td {{i.Time}}
+            td {{i.Owner.Name}}
+
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')

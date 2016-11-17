@@ -1,0 +1,81 @@
+doctype html
+html(ng-app='registerform')
+    head
+        title ="Conference Management System"
+        link(rel='stylesheet', href='/stylesheets/reviewform.css')
+
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/javascripts/rajat.js')
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+    ul.nav.nav-tabs
+        li(role='presentation')
+            a(href='http://localhost:3500/ConferenceManagement/home')
+                span(class="glyphicon glyphicon-home")
+        li(role='presentation')
+            a(href='http://localhost:3500/ConferenceManagement/author/submissions') My files
+        li(role='presentation')
+            a(href='http://localhost:3500/ConferenceManagement/myprofile') My Profile
+        li(role='presentation')
+            a(href='http://localhost:3500/ConferenceManagement/chair/allconferences') All Conferences
+        li.active(role='presentation')
+            a(href='http://localhost:3500/ConferenceManagement/author/editsubmission') Edit Submission
+
+
+    body(ng-controller='maincontroller',ng-init="user= #{JSON.stringify(user)}")
+
+            .container
+                form.form-horizontal(enctype="multipart/form-data" ,name="myForm" action="/ConferenceManagement/author/editsubmissions", method="post",role="form",style="max-width:600px")
+                    h3 Edit Submission
+                    br
+
+                    .form-group
+                        label.col-sm-3.control-label Title
+                        .col-sm-9
+                            input.form-control(name='Title', ng-model='user.Title', ng-minlength='5', required='', placeholder='Title', autofocus='')
+                            input(type="text", ng-model='user._id',name='FileID',class='hidden')
+                    .form-group
+                        label.col-sm-3.control-label Co-Author 1 Name
+                        .col-sm-9
+                            input.form-control(type="text",ng-model='user.Coauthor[0].CoAuthor1Name',name='CoAuthor1Name')
+
+                    .form-group
+                        label.col-sm-3.control-label Co-Author 1 Email
+                        .col-sm-9
+                            input.form-control(type="text",ng-model='user.Coauthor[0].CoAuthor1Email',name='CoAuthor1Email')
+
+                    .form-group
+                        label.col-sm-3.control-label Co-Author 2 Name
+                        .col-sm-9
+                            input.form-control(type="text",ng-model='user.Coauthor[1].CoAuthor2Name',name='CoAuthor2Name')
+
+                    .form-group
+                        label.col-sm-3.control-label Co-Author 2 Name
+                        .col-sm-9
+                            input.form-control(type="text",ng-model='user.Coauthor[1].CoAuthor2Email',name='CoAuthor2Email')
+
+                    .form-group
+                        label.col-sm-3.control-label Abstract
+                        .col-sm-9
+                            textarea.form-control(type="text",ng-model='user.Abstract',name='Abstract')
+
+                    br
+                    .form-group
+                        label.col-sm-3.control-label Original File
+                        .col-sm-9
+                            a(href='http://localhost:3500/ConferenceManagement/files/download?id={{user.OriginalName}}') Download
+
+                    .form-group
+                        label.col-sm-3.control-label Update File
+                        .col-sm-9
+                            input.form-control(type="file",ng-model='user.OriginalName',name='Original Name')
+
+                    .form-group
+                        .col-sm-9.col-sm-offset-3
+                            button.btn.btn-primary(type="submit", value="Notwanttouploadnewone",ng-disabled="myForm.$invalid",  name="Update") Submit
+
+
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/core.js')
+
+

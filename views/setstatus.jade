@@ -1,0 +1,29 @@
+doctype html
+html(ng-app='next-update-stats')
+    head
+        title= "Real time web chat"
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/javascripts/rajat.js')
+
+    body(ng-controller="next-update-stats-controller")
+
+        mixin FileData(OriginalName, Author, Status, FileID, SubCategory)
+            div.thumbnail
+                h2= OriginalName
+                h2= Author
+                h2= Status
+                input(type="radio",ng-model='radio',value='Pending')
+                input(type="radio",ng-model='radio',value='Accepted')
+                input(type="radio",ng-model='radio',value='Rejected')
+
+                a(href='http://localhost:3500/ConferenceManagement/myconferences/setstatus?id=' + '#{FileID}') SetStatus
+                br
+                a(href='http://localhost:3500/ConferenceManagement/myconferences/setreviewer?id=' + '#{FileID}') SetReviewer
+
+        +FileData(user.OriginalName , user.Author.Name , user.Status, user._id , 'yo')
+            br
+
+
+

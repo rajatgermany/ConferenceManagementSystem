@@ -1,0 +1,14 @@
+doctype html
+html(ng-app='newApp')
+    head
+        title= "Conference Management System"
+        link(rel='stylesheet', href='/stylesheets/reviewform.css')
+
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js')
+        script(src='/javascripts/authorfiles.js')
+
+
+    body(ng-controller='newCtrl')
+        h1 User Deleted
+        span Redirect to
+        a(href='http://localhost:3500/ConferenceManagement/home') Home
