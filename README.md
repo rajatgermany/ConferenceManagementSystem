@@ -43,19 +43,20 @@ Detailed comments </br>
 
 **User can Chat with other users online on the platform**
 #User Manaul
-1.Start mongoDb service
-2.Run socket.js file
-3.Get to Url: http://localhost:3500/ConferenceManagement/home
-4.Login Pop will appear 
-5.Register if first time User
-6.Register as Chair , Reviewer or Author or Reviewer+Author
-7.Wait for the request acceptance from the Admin
-8.Admin homepage : http://localhost:3500/ConferenceManagement/admin
-9.Login to Admin account with - **Email - rajatuiet@gmail.com** , **Password - rajat**
-10.Accept/Reject User request
-11.Login if Request accepted
-12.Login as Chair 
-  -MakeConfernce(Fill the Form)
-  -View your own conferences
-  -Manage - Will list all the papers uploaded to the Conference (View Author of the paper, Assign reviewer, UpdateStatus, ViewReview)
+1.Start mongoDb service</br>
+2.Run socket.js file</br>
+3.Get to Url: http://localhost:3500/ConferenceManagement/home </br>
+4.Login Pop will appear </br>
+5.Register if first time User </br>
+6.Register as Chair , Reviewer or Author or Reviewer+Author </br>
+7.Wait for the request acceptance from the Admin </br>
+8.Admin homepage : http://localhost:3500/ConferenceManagement/admin </br>
+9.Login to Admin account with - **Email - rajatuiet@gmail.com** , **Password - rajat** </br>
+10.Accept/Reject User request </br>
+11.Login if Request accepted </br>
+12.Login as Chair  </br>
+  - MakeConfernce(Fill the Form)
+  - View your own conferences
+  - Manage - Will list all the papers uploaded to the Conference (View Author of the paper, Assign reviewer to it, UpdateStatus, ViewReview)
+  
   
