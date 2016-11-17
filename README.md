@@ -2,7 +2,7 @@
 A Platform for uploading research papers to the conferences </br>
 # Documentation
 Three types of Users can use this platform </br>
-**Chair - ** </br>
+**Chair** </br>
 1.List all paper submissions.</br>
 2.Look at a submissions (details, pdf download).</br>
 3.Withdraw a submission.</br>
@@ -14,7 +14,7 @@ Three types of Users can use this platform </br>
 9.Conflict avoidance: an author is not allow to review his own paper.</br>
 
 
-**Author - **</br>
+**Author**</br>
 1.Create a new submission (if submission is open)</br>
 2.Upload the paper (.pdf) </br>
 3.Access current submissions (overview) </br>
@@ -24,7 +24,7 @@ Three types of Users can use this platform </br>
 7.Withdraw a submission </br>
 
 
-**Reviewer -** </br>
+**Reviewer** </br>
 1.Access assigned submissions (overview + status) </br>
 2.Look at an assigned submission </br>
 3.Details, pdf download or view </br>
