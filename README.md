@@ -57,6 +57,32 @@ Detailed comments </br>
 12.Login as Chair  </br>
   - MakeConfernce(Fill the Form)
   - View your own conferences
-  - Manage - Will list all the papers uploaded to the Conference (View Author of the paper, Assign reviewer to it, UpdateStatus, ViewReview)
+  - Manage - Will list all the papers uploaded to the Conference (View Author of the paper, Assign reviewer to it, UpdateStatus, ViewReview)</br>
+  
+  
+  13.Login as Author </br>
+  - After Successful Login, click on the **StartUploading** to explore all the Conferences </br>
+  - Choose one of the Conference and uploads the Paper to the Category </br>
+  - Wait for the Review </br>
+  
+  14.Login as Reviewer </br>
+  - After Successful Login, View  the ReviewFiles assigned 
+  - Download the file 
+  - Give the review using the ReviewTemplate
+  - **Can Edit the Review until the paper is Open which is decided by the Chair of the Conference**
+  
+  
+  15.Login Again as Chair </br>
+   - View the Review Assigned and Accordingly set the status to the paper </br>
+   
+   16. Login as Author </br>
+    - View the review to the paper
+    
+  
+
+  
+  
+  
+  
   
   
