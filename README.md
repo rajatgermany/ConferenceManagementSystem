@@ -24,6 +24,7 @@ Four types of Users can use this platform </br>
 7.Withdraw a submission </br>
 
 
+
 **Reviewer** </br>
 1.Access assigned submissions (overview + status) </br>
 2.Look at an assigned submission </br>
@@ -40,4 +41,17 @@ Detailed comments </br>
 **Admin** </br>
 1.Accepts or Rejects User request for Role. Only after his acceptance one can perorm activities on the platform.
 
-
+**User can Chat with other users online on the platform**
+#User Manaul
+1.Start mongoDb service
+2.Run socket.js file
+3.Get to Url: http://localhost:3500/ConferenceManagement/home
+4.Login Pop will appear 
+5.Register if first time User
+6.Register as Chair , Reviewer or Author or Reviewer+Author
+7.Wait for the request acceptance from the Admin
+8.Admin homepage : http://localhost:3500/ConferenceManagement/admin
+9.Login to Admin account with - **Email - rajatuiet@gmail.com** , **Password - rajat**
+10.Accept/Reject User request
+11.Login if Request accepted
+12.Login as Chair
