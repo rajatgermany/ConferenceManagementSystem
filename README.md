@@ -28,11 +28,11 @@ Three types of Users can use this platform </br>
 1.Access assigned submissions (overview + status) </br>
 2.Look at an assigned submission </br>
 3.Details, pdf download or view </br>
-4.Make a review > template (if review is open) </br>
-.reviewer expertise: (1) not familar w/ the topic - (5) expert
+4.Make a review > template (if review is open) 
+- reviewer expertise: (1) not familar w/ the topic - (5) expert
 overall evaluation: (1) strong reject - (5) strong accept
-summary,
-Major strong popints,
-Major weak points,
-Detailed comments
+- summary,
+-Major strong popints,
+-Major weak points,
+-Detailed comments
 5.Edit a review (if reviewing phase is open) </br>
