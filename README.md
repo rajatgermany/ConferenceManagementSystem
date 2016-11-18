@@ -1,5 +1,78 @@
 # ConferenceManagementSystem
 A Platform for uploading research papers to the conferences </br>
+
+# ShoppingCart
+#### Single Page Application- Authenticated User Add Items to their Cart and Ship to their Address
+
+## Stack
+
+* Persistence store: [MongoDB](http://www.mongodb.org/)
+* Backend: [Node.js](http://nodejs.org/)
+* Awesome [AngularJS](http://www.angularjs.org/) on the client
+* CSS based on [Twitter's bootstrap](http://getbootstrap.com/)
+* Socket.io
+
+
+
+## Installation
+
+### Platform & tools
+
+You need to install Node.js and then the development tools. Node.js comes with a package manager called [npm](http://npmjs.org) for installing NodeJS applications and libraries.
+* [Install node.js](http://nodejs.org/download/) (requires node.js version >= 0.8.4)
+
+### Get the Code
+Either clone this repository or fork it on GitHub and clone your fork:
+
+```
+git clone https://github.com/rajatgermany/ConferenceManagementSystem.git
+cd ConferenceManagementSystem
+```
+
+### App Server
+
+Our backend application server is a NodeJS application that relies upon some 3rd Party npm packages.  You need to install these:
+
+* Install local dependencies (from the project root folder):
+
+    ```
+    npm install
+    ```
+
+  (This will install the dependencies declared in the server/package.json file)
+
+## Running
+### Start the Server
+* Run the server
+
+    ```
+    node socket.js
+    ```
+* Browse to the application at [http://localhost:3500/ConferenceManagement/home]
+
+
+## Browser Support
+We only regularly test against Chrome 29 and occasionally against Firefox and Internet Explorer.
+The application should run on most modern browsers that are supported by the AngularJS framework.
+Obviously, if you chose to base your application on this one, then you should ensure you do your own
+testing against browsers that you need to support.
+
+## Development
+
+### Folders structure
+
+At the top, level the repository divided into following folders -
+- Development Folder (client Side Components) , 
+- server file ( socket.js)
+- node_modules
+- routes( express route Handlers)
+
+    ```
+* node_modules- contains build tasks for Grunt along with other, user-installed, Node packages
+* Development - contains FrontEnd Components, Vendor Javascripts and built in vendor.min.js and  mainapp.min.js file
+* socket.js- contains express server file
+* routes- contains express app route handlers
+
 # Documentation
 Four types of Users can use this platform </br>
 **Chair** </br>
