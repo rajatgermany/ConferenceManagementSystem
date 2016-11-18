@@ -1,8 +1,6 @@
 # ConferenceManagementSystem
 A Platform for uploading research papers to the conferences </br>
 
-# ShoppingCart
-#### Single Page Application- Authenticated User Add Items to their Cart and Ship to their Address
 
 ## Stack
 
@@ -73,6 +71,8 @@ At the top, level the repository divided into following folders -
 * socket.js- contains express server file
 * routes- contains express app route handlers
 
+   ```
+   
 # Documentation
 Four types of Users can use this platform </br>
 **Chair** </br>
