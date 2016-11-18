@@ -1,6 +1,6 @@
 # ConferenceManagementSystem
 ### Mean Statck application built for research students or PHD to publish their paper to the Conferences open in the area.
-Conference Owner gets the reviews from the reviewers associated with app and judge accordingly for the paper accpetance and rejection.The app is scalable, a single owner can have multiple conferences and author can upload the paper to any number of  conferences he wants.Also socket.io for the real time communication between the users of the app.
+Conference Owner gets the reviews from the reviewers associated with app and judge accordingly for the paper accpetance and rejection.The app is scalable, a single owner can have multiple conferences and author can upload the paper to any number of  conferences he wants. Also real time communication (chat) feature is also between the users of the app using socket.io.
 
 
 
