@@ -1,5 +1,7 @@
 # ConferenceManagementSystem
-A Platform for uploading research papers to the conferences </br>
+### Built the Conference Management portal  as a university project where  research students or PHD can upload  their paper  to the Conference open  in  the area.  The  owner of the  conference  further pass the uploaded  paper to the authenticated  reviewers . Conference owner  according to the review accepts or rejects the paper.The app is scalable, a single owner can have multiple conferences and author can upload the paper to any number of  conferences he wants. I used  MEAN stack  and  included socket.io for the real time communication between the users of the app.
+
+
 
 
 ## Stack
