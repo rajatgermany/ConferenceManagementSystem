@@ -67,7 +67,7 @@ At the top, level the repository divided into following folders -
 
     ```
 * node_modules- contains build tasks for Grunt along with other, user-installed, Node packages
-* Development - contains FrontEnd Components, Vendor Javascripts and built in vendor.min.js and  mainapp.min.js file
+* Public - contains FrontEnd Components in Component Folder and lib folder for Vendor Javascripts
 * socket.js- contains express server file
 * routes- contains express app route handlers
 
